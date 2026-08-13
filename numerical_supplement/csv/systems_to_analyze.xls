@@ -1,0 +1,6 @@
+d,n,description
+2,2,Qubit measurement (2-outcome)
+2,4,Qubit SIC/tetrahedral POVM
+2,6,Qubit 6-outcome
+2,8,Qubit 8-outcome
+3,9,Qutrit SIC POVM

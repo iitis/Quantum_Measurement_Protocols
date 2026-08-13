@@ -1,0 +1,6 @@
+d,n,delta_memory_exponent,N_threshold_Naimark_success,comment
+2,2,0,1,Equal polynomial memory; Naimark success wins from N=1
+2,4,48,1,Naimark much worse for memory; Naimark success wins from N=1
+2,6,128,4,Naimark much worse for memory; Naimark success wins from N=4
+2,8,240,20,Naimark much worse for memory; Naimark success wins from N=20
+3,9,693,65,Naimark much worse for memory; Naimark success wins from N=65
