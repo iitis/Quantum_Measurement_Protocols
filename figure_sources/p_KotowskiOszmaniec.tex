@@ -1,0 +1,112 @@
+\documentclass[border=4pt]{standalone}
+\usepackage{circuitikz}
+\usepackage{braket}
+\usepackage{fontawesome}
+\usepackage{amsmath}
+
+\begin{document}
+\begin{circuitikz}
+\tikzstyle{every node}=[font=\fontsize{18.2pt}{23.7pt}\selectfont]
+
+\node[anchor=center, align=center, inner xsep=0.080cm, inner ysep=0.085cm, rounded corners=0.020cm] at (1.2,11.85) {\fontsize{18pt}{23.7pt}\selectfont $\rho$};
+\draw [short] (1.5,11.85) -- (3,11.85);
+% State preparation box (extended to accommodate the new (a) branch and the failure branch)
+\draw  (3,17) rectangle (6.5,2.35);
+\node[anchor=center, align=center, inner xsep=0.080cm, inner ysep=0.085cm, rounded corners=0.020cm] at (4.75,10.5) {\fontsize{18pt}{23.7pt}\selectfont $\ket{\psi_{\mathrm{pPBT}}}$};
+
+% ----- Bob's branch: port 1 -----
+\draw [short] (6.5,9.8) -- (8.875,9.8);
+\node[anchor=center, align=center, inner xsep=0.080cm, inner ysep=0.085cm, rounded corners=0.020cm] at (9.375,9.8) {\fontsize{18pt}{23.7pt}\selectfont $1$};
+\draw  (9.375,9.8) circle (0.5cm);
+
+\draw [-{Stealth[scale=1.5]}, dashed] (12.125,9.8) -- (15.25,9.8);
+\node [font=\fontsize{18pt}{23.7pt}\selectfont, inner xsep=0.080cm, inner ysep=0.085cm, rounded corners=0.020cm] at (14.125,10.1) {$q$};
+
+\draw [dashed] (11.5,9.15) -- (11.5,8.45);
+\draw [-{Stealth[scale=1.5]}, dashed] (11.5,8.45) -- (13.05,8.45);
+\node at (13.65,8.6) {\fontsize{22pt}{24pt}\selectfont\faTrash};
+
+\draw [ color={rgb,255:red,91; green,20; blue,20}, draw opacity=1 ] (10.75,10.4) rectangle (12.125,9.2);
+\node[anchor=center, align=center, inner xsep=0.080cm, inner ysep=0.085cm, rounded corners=0.020cm] at (11.5,9.8) {\fontsize{18pt}{23.7pt}\selectfont $\Omega_{\mathrm{Br}}$};
+\draw [short] (9.875,9.8) -- (10.75,9.8);
+\node [font=\fontsize{18pt}{23.7pt}\selectfont, inner xsep=0.080cm, inner ysep=0.085cm, rounded corners=0.020cm] at (10.65,8.7) {$1-q$};
+
+% ----- Bob's vdots between port 1 and port (a) -----
+\node[anchor=center, align=center, inner xsep=0.080cm, inner ysep=0.085cm, rounded corners=0.020cm] at (9.375,8.35) {\fontsize{32.2pt}{23.7pt}\selectfont $\vdots$};
+
+% ----- Bob's branch: port (a) -----
+\draw [short] (6.5,6.9) -- (8.875,6.9);
+\node[anchor=center, align=center, inner xsep=0.080cm, inner ysep=0.085cm, rounded corners=0.020cm] at (9.375,6.9) {\fontsize{18pt}{23.7pt}\selectfont $a$};
+\draw  (9.375,6.9) circle (0.5cm);
+
+\draw [ color={rgb,255:red,91; green,20; blue,20}, draw opacity=1 ] (10.75,7.5) rectangle (12.125,6.3);
+\node[anchor=center, align=center, inner xsep=0.080cm, inner ysep=0.085cm, rounded corners=0.020cm] at (11.5,6.9) {\fontsize{18pt}{23.7pt}\selectfont $\Omega_{\mathrm{Br}}$};
+\draw [short] (9.875,6.9) -- (10.75,6.9);
+
+\draw [dashed] (11.5,6.25) -- (11.5,5.55);
+\draw [-{Stealth[scale=1.5]}, dashed] (11.5,5.55) -- (13.05,5.55);
+\node at (13.65,5.7) {\fontsize{22pt}{24pt}\selectfont\faTrash};
+
+\node [font=\fontsize{18pt}{23.7pt}\selectfont, inner xsep=0.080cm, inner ysep=0.085cm, rounded corners=0.020cm] at (10.65,5.8) {$1-q$};
+\draw [-{Stealth[scale=1.5]}, dashed] (12.125,6.9) -- (15.25,6.9);
+\node [font=\fontsize{18pt}{23.7pt}\selectfont, inner xsep=0.080cm, inner ysep=0.085cm, rounded corners=0.020cm] at (14.125,7.15) {$q$};
+
+% ----- Bob's vdots between port (a) and port N -----
+\node[anchor=center, align=center, inner xsep=0.080cm, inner ysep=0.085cm, rounded corners=0.020cm] at (9.375,5.45) {\fontsize{32.2pt}{23.7pt}\selectfont $\vdots$};
+
+% ----- Bob's branch: port N -----
+\draw [short] (6.5,4) -- (8.875,4);
+\node[anchor=center, align=center, inner xsep=0.080cm, inner ysep=0.085cm, rounded corners=0.020cm] at (9.375,4) {\fontsize{18pt}{23.7pt}\selectfont $N$};
+\draw  (9.375,4) circle (0.5cm);
+
+\draw [ color={rgb,255:red,91; green,20; blue,20}, draw opacity=1 ] (10.75,4.6) rectangle (12.125,3.4);
+
+\node[anchor=center, align=center, inner xsep=0.080cm, inner ysep=0.085cm, rounded corners=0.020cm] at (11.5,4) {\fontsize{18pt}{23.7pt}\selectfont $\Omega_{\mathrm{Br}}$};
+\draw [short] (9.875,4) -- (10.75,4);
+
+\draw [dashed] (11.5,3.4) -- (11.5,2.7);
+\draw [-{Stealth[scale=1.5]}, dashed] (11.5,2.7) -- (13.05,2.7);
+\node at (13.65,2.7) {\fontsize{22pt}{24pt}\selectfont\faTrash};
+
+\node [font=\fontsize{18pt}{23.7pt}\selectfont, inner xsep=0.080cm, inner ysep=0.085cm, rounded corners=0.020cm] at (10.65,2.9) {$1-q$};
+\draw [-{Stealth[scale=1.5]}, dashed] (12.125,4) -- (15.25,4);
+\node [font=\fontsize{18pt}{23.7pt}\selectfont, inner xsep=0.080cm, inner ysep=0.085cm, rounded corners=0.020cm] at (14.125,4.3) {$q$};
+
+% ----- Alice / Bob separator -----
+\draw [ color={rgb,255:red,51; green,76; blue,151}, draw opacity=1, dashed] (0,11) -- (20,11);
+\node [font=\fontsize{18.2pt}{23.7pt}\selectfont, inner xsep=0.080cm, inner ysep=0.085cm, rounded corners=0.020cm] at (2,10) {Bob};
+\node [font=\fontsize{18.2pt}{23.7pt}\selectfont, inner xsep=0.080cm, inner ysep=0.085cm, rounded corners=0.020cm] at (2,16.375) {Alice};
+
+% ----- Alice's ports -----
+\draw [short] (6.5,12.65) -- (14.0,12.65);
+\draw  (14.5,12.65) circle (0.5cm);
+\node[anchor=center, align=center, inner xsep=0.080cm, inner ysep=0.085cm, rounded corners=0.020cm] at (14.5,12.65) {\fontsize{18pt}{23.7pt}\selectfont $N$};
+
+\draw [short] (6.5,13.85) -- (10.0,13.85);
+\node[anchor=center, align=center, inner xsep=0.080cm, inner ysep=0.085cm, rounded corners=0.020cm] at (10.9,13.85) {\fontsize{32.2pt}{23.7pt}\selectfont $\vdots$};
+
+\draw [short] (6.5,15.05) -- (14.0,15.05);
+\draw  (14.5,15.05) circle (0.5cm);
+\node[anchor=center, align=center, inner xsep=0.080cm, inner ysep=0.085cm, rounded corners=0.020cm] at (14.5,15.05) {\fontsize{18pt}{23.7pt}\selectfont $1$};
+
+% ----- Alice's failure branch: outcome (empty set), sits above the measurement box -----
+\draw [short] (6.5,16.25) -- (14.0,16.25);
+\draw  (14.5,16.25) circle (0.5cm);
+\node[anchor=center, align=center, inner xsep=0.080cm, inner ysep=0.085cm, rounded corners=0.020cm] at (14.5,16.25) {\fontsize{18pt}{23.7pt}\selectfont $\emptyset$};
+
+\node [font=\fontsize{15.2pt}{23.7pt}\selectfont, inner xsep=0.080cm, inner ysep=0.085cm, rounded corners=0.020cm] at (16.35,16.65) {$1-\lambda(N,D)$};
+\draw [-{Stealth[scale=1.5]}, dashed] (15.0,16.25) -- (17.75,16.25);
+\node at (18.35,16.25) {\fontsize{22pt}{24pt}\selectfont\faTrash};
+
+% ----- Alice's measurement (top shortened so the (empty set) branch stays outside) -----
+\draw [ color={rgb,255:red,102; green,180; blue,50}, draw opacity=1 , rounded corners = 12.0, dashed] (13.5,15.65) rectangle (20.0,11.85);
+\node[anchor=center, align=center, inner xsep=0.080cm, inner ysep=0.085cm, rounded corners=0.020cm] at (17.5,14.8) {\fontsize{15pt}{15pt}\selectfont Measurement \\ outcome $a$};
+
+\node[anchor=center, align=center, inner xsep=0.080cm, inner ysep=0.085cm, rounded corners=0.020cm] at (17.4,13) {\fontsize{14pt}{15pt}\selectfont
+Success probability:\\ $\lambda(N,D)$};
+
+\draw [ color={rgb,255:red,102; green,180; blue,50}, double, double distance=1.2pt, draw opacity=1, double equal sign distance, shorten >=-11pt, -{Latex[open,scale=1.5]}, ] (20,12.0) arc[start angle=45.00, end angle=-115.50, radius=3.35];
+
+\node [font=\fontsize{16pt}{23.7pt}\selectfont, inner xsep=0.080cm, inner ysep=0.085cm, rounded corners=0.020cm] at (21.3,6.60) {Port choice $a$};
+\end{circuitikz}
+\end{document}
